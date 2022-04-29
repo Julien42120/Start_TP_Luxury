@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JobCategory{% endblock %}
+
+{% block body %}
+    <h1 style="padding-top:10rem; text-align:center; background-color:#2F3138; margin-top:0; color:white ;padding-bottom:2%">JobCategory</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ job_category.id }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ job_category.category }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn bn-lg grey darken-1 btn-block waves-effect waves-light btn-register" href="{{ path('job_category_index') }}">back to list</a>
+
+    <a style="margin:0" class="btn bn-lg gradient secondary btn-block waves-effect waves-light btn-register" href="{{ path('job_category_edit', {'id': job_category.id}) }}">edit</a>
+
+    {{ include('job_category/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Experience{% endblock %}
+
+{% block body %}
+    <h1  style="padding-top:10rem; text-align:center; background-color:#2F3138; margin-top:0; color:white; padding-bottom:2%">Create new Experience</h1>
+
+    {{ include('experience/_form.html.twig') }}
+
+    
+    <a target="_self" href="{{ path('experience_index') }}"  class="btn bn-lg grey darken-1 btn-block waves-effect waves-light btn-register">
+        <span>Back to list</span>
+    </a>
+{% endblock %}

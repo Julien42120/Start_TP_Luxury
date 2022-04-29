@@ -1,0 +1,65 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidat index{% endblock %}
+
+{% block body %}
+
+<div class="hidden"></div>
+
+    <h1 style="padding-top:10rem; text-align:center; background-color:#2F3138; margin-top:0; color:white; padding-bottom:2%">Candidat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Picture</th>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>Country</th>
+                <th>Cv</th>
+                <th>Current_location</th>
+                <th>Adress</th>
+                <th>Nationality</th>
+                <th>Short_description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for candidat in candidats %}
+            <tr>
+                <td>
+                {% if candidat.picture is null %} 
+                    <img style="width: 4rem; height: 5rem;"src="{{ asset ('uploads/picture/profiltype.png')}}">
+                {% else %} 
+                    <img style="width:6vw; height:6vw" src="{{ asset ('uploads/picture/') ~ candidat.picture }}"></td>
+                {% endif %}
+                <td>{{ candidat.firstName }}</td>
+                <td>{{ candidat.lastName }}</td>
+                <td>{{ candidat.country }}</td>
+                <td><a href="{{ asset ('uploads/cv/') ~ candidat.cv }}">See CV 📂</a></td>
+                <td>{{ candidat.currentLocation }}</td>
+                <td>{{ candidat.adress }}</td>
+                <td>{{ candidat.nationality }}</td>
+                <td>{{ candidat.shortDescription }}</td>
+                <td>
+                    <a style="width:2vw; height:3vh; font-size:1rem; padding:initial" class="btn grey darken-1 waves-effect waves-light btn-register"  href="{{ path('candidat_show', {'id': candidat.id}) }}">show</a>
+                    <a style="width:2vw; height:3vh; font-size:1rem; padding:initial" class="btn gradient secondary waves-effect waves-light btn-register" href="{{ path('candidat_edit', {'id': candidat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a target="_self" href="{{ path('candidat_new') }}" class="btn bn-lg grey darken-1 btn-block waves-effect waves-light btn-register">
+        <span>Create new</span>
+    </a>
+    <a style="margin:0" target="_self" href="{{ path ('admin')}}" class="btn bn-lg gradient secondary btn-block waves-effect waves-light btn-register">
+        <span> return to Admin Page</span>
+    </a>
+   
+{% endblock %}

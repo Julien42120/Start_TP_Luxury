@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Candidat{% endblock %}
+
+{% block body %}
+    <div class="base">
+
+    <!-- Page -->
+    <div class="page">
+
+        <!-- Page Header-->
+        <section class="page-title page-title-bg fixed-bg overlay dark-5 padding-top-160 padding-bottom-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="white-text">Your profile</h2>
+                        <span class="white-text">Personnal & Professionnal informations</span>
+                        <ol class="breadcrumb">
+                            <li><a href="#!">Home</a></li>
+                            <li class="active">Profile</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger" style="text-align:center">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <!-- Page Content-->
+        <section class="gray-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="score-container"> 
+                    
+                    {% if filledFieldCount != 100 %}
+                        <h4>
+                            <img src="https://media.giphy.com/media/l4pTlllunXDAHOR9u/giphy.gif" style="height: 100px; width: 201px;"> &nbsp;
+                            &nbsp; Your profile is no completed.
+                        </h4>
+                    {% else %}
+                        <h4>
+                            <img src="https://media.giphy.com/media/l49JB6VgFWcFN77BS/giphy.gif" style="height: 100px; width: 201px;"> &nbsp;
+                            &nbsp; Hooray ! Your profile is complete.
+                        </h4>
+                    {% endif %}
+
+                        <div class="c100 p{{filledFieldCount|round }} small complete ">
+                            <span>{{filledFieldCount|round }}%</span>
+                            <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
+
+        {{ include('candidat/_form.html.twig') }}
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
+

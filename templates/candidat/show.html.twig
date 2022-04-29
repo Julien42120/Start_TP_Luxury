@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidat{% endblock %}
+
+
+{% block body %}
+    <h1 style="padding-top:10rem; text-align:center; background-color:#2F3138; margin-top:0; color:white; padding-bottom:2%">Candidat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Picture</th>
+                <td>
+                {% if candidat.picture is null %} 
+                    <img style="width: 4rem; height: 5rem;"src="{{ asset ('uploads/picture/profiltype.png')}}">
+                {% else %} 
+                    <img style="width:6vw; height:6vw" src="{{ asset ('uploads/picture/') ~ candidat.picture }}"></td>
+                {% endif %}
+            </tr>
+            </tr>
+            <tr>
+                <th>First_name</th>
+                <td>{{ candidat.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Last_name</th>
+                <td>{{ candidat.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ candidat.country }}</td>
+            </tr>
+            <tr>
+                <th>Cv</th>
+                 <td><a href="{{ asset ('uploads/cv/') ~ candidat.cv }}">See CV 📂</a></td>
+            </tr>
+            
+            <tr>
+                <th>Current_location</th>
+                <td>{{ candidat.currentLocation }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ candidat.adress }}</td>
+            </tr>
+            <tr>
+                <th>Nationality</th>
+                <td>{{ candidat.nationality }}</td>
+            </tr>
+            <tr>
+                <th>Availability</th>
+                <td>{{ candidat.availability ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Short_description</th>
+                <td>{{ candidat.shortDescription }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ candidat.active ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Passport</th>
+                <td><a href="{{ asset ('uploads/passport/') ~ candidat.passport }}">See Passport 📂</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn bn-lg grey darken-1 btn-block waves-effect waves-light btn-register" href="{{ path('candidat_index') }}">back to list</a>
+
+    <a style="margin:0" class="btn bn-lg gradient secondary btn-block waves-effect waves-light btn-register" href="{{ path('candidat_edit', {'id': candidat.id}) }}">edit</a>
+
+    {{ include('candidat/_delete_form.html.twig') }}
+{% endblock %}
+
+

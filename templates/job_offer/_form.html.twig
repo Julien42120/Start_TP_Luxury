@@ -1,0 +1,118 @@
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .dropdown-content{
+            max-height: none;
+        } 
+        .tp-caption.boxshadow, .boxshadow {
+                box-shadow: 0 0 0px rgb(0 0 0)!important;
+        }
+    </style>
+
+{% endblock %}
+
+{{ form_start(form) }}
+    
+   <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.title) }}
+                        {{ form_label(form.title, 'title', {
+                            'label_attr': {'class': 'title'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">   
+                    <div class="input-field">
+                       {{ form_widget(form.description) }}
+                        {{ form_label(form.description, 'description', {
+                            'label_attr': {'class': 'description'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.note) }}
+                        {{ form_label(form.note, 'note', {
+                            'label_attr': {'class': 'note'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.location) }}
+                        {{ form_label(form.location, 'location', {
+                            'label_attr': {'class': 'location'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.closing_date) }}
+                        {{ form_label(form.closing_date, 'closing_date', {
+                            'label_attr': {'class': 'closing_date'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.salary) }}
+                        {{ form_label(form.salary, 'salary', {
+                            'label_attr': {'class': 'salary'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.client) }}
+                        {{ form_label(form.client, 'client', {
+                            'label_attr': {'class': 'client'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                         {{ form_widget(form.job_cat) }}
+                            {{ form_label(form.job_cat, 'job_cat', {
+                            'label_attr': {'class': 'job_cat'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.job_type) }}
+                        {{ form_label(form.job_type, 'job_type', {
+                            'label_attr': {'class': 'job_type'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 ">
+                    <button type="submit" class="btn btn-block btn-lg gradient secondary waves-effect waves-light">
+                        <span><strong>CREATE</strong> NOW</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+   
+{{ form_end(form) }}
+
+{% block javascripts %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+    <script>
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd' });
+    </script>
+
+{% endblock %}
+

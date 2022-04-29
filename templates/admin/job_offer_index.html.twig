@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JobOffer List{% endblock %}
+
+{% block body %}
+   
+ <h1 style="padding-top:10rem; text-align:center; background-color:#2F3138; margin-top:0; color:white; padding-bottom:2%">JobOffer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Note</th>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Closing_date</th>
+                <th>Salary</th>
+                <th>Creation_date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for job_offer in job_offers %}
+            <tr>
+                <td>{{ job_offer.id }}</td>
+                <td>{{ job_offer.description }}</td>
+                <td>{{ job_offer.note }}</td>
+                <td>{{ job_offer.title }}</td>
+                <td>{{ job_offer.location }}</td>
+                <td>{{ job_offer.closingDate ? job_offer.closingDate|date('Y-m-d') : '' }}</td>
+                <td>{{ job_offer.salary }}</td>
+                <td>{{ job_offer.creationDate ? job_offer.creationDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a style="width:2vw; height:3vh; font-size:1rem; padding:initial" class="btn grey darken-1 waves-effect waves-light btn-register"  href="{{ path('job_offer_show', {'id': job_offer.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a target="_self" href="{{ path('job_offer_new') }}" class="btn bn-lg grey darken-1 btn-block waves-effect waves-light btn-register">
+        <span>Create new</span>
+    </a>
+    <a style="margin:0" target="_self" href="{{ path ('admin')}}"class="btn bn-lg gradient secondary btn-block waves-effect waves-light btn-register">
+    <span>Return to admin page</span></a>
+    
+
+
+{% endblock %}

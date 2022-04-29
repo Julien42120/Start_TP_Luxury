@@ -1,0 +1,59 @@
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .dropdown-content{
+            max-height: none;
+        } 
+        .tp-caption.boxshadow, .boxshadow {
+                box-shadow: 0 0 0px rgb(0 0 0)!important;
+        }
+    </style>
+
+{% endblock %}
+
+
+{{ form_start(form) }}
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <h3 class="text-extrabold">Your personal informations</h3>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="input-field">
+                       {{ form_widget(form.candidat) }}
+                        {{ form_label(form.candidat, 'candidat', {
+                            'label_attr': {'class': 'candidat'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="input-field">
+                       {{ form_widget(form.job_offer) }}
+                        {{ form_label(form.job_offer, 'job_offer', {
+                            'label_attr': {'class': 'job_offer'}
+                        }) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    </section>
+{{ form_end(form) }}
+
+
+{% block javascripts %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+    <script>
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd' });
+    </script>
+
+{% endblock %}

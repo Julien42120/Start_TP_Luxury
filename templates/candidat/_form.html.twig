@@ -1,0 +1,246 @@
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .dropdown-content{
+            max-height: none;
+        } 
+        .tp-caption.boxshadow, .boxshadow {
+                box-shadow: 0 0 0px rgb(0 0 0)!important;
+        }
+    </style>
+
+{% endblock %}
+
+{{ form_start(form) }}
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <h3 class="text-extrabold">Your personal informations</h3>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="input-field">
+                       {{ form_widget(form.gender) }}
+                        {{ form_label(form.gender, 'gender', {
+                            'label_attr': {'class': 'gender'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="clearfix visible-sm"></div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="input-field">
+                        {{ form_widget(form.first_name) }}
+                        {{ form_label(form.first_name, 'first_name', {
+                            'label_attr': {'class': 'first_name'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="input-field">
+                        {{ form_widget(form.last_name) }}
+                        {{ form_label(form.last_name, 'last_name', {
+                            'label_attr': {'class': 'last_name'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="input-field">
+                        {{ form_widget(form.current_location) }}
+                        {{ form_label(form.current_location, 'current_location', {
+                            'label_attr': {'class': 'current_location'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-8">
+                    <div class="input-field">
+                        {{ form_widget(form.adress) }}
+                        {{ form_label(form.adress, 'adress', {
+                            'label_attr': {'class': 'adress'}
+                        }) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="file-field input-field"
+                            style="margin-top: 32px;">
+                        <div class="btn btn-lg primary waves-effect waves-light">
+                            <span><i class="material-icons">insert_photo</i> Photo</span>
+                            {{ form_widget(form.picture) }}
+                        </div>
+
+                        <div class="existing-file">
+                            <a href="{{ asset ('uploads/picture/' ~ candidat.picture) }}" target="_blank"><i class="material-icons">&#xE24D;</i> profil_picture.jpg</a>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload your ID photo" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="input-field">
+                                {{ form_widget(form.country) }}
+                                {{ form_label(form.country, 'country', {
+                                'label_attr': {'class': 'country'}
+                                }) }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="input-field">
+                                {{ form_widget(form.nationality) }}
+                                {{ form_label(form.nationality, 'nationality', {
+                                'label_attr': {'class': 'nationality'}
+                                }) }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="input-field">
+                                {{ form_widget(form.birth_date) }}
+                                {{ form_label(form.birth_date, 'birth_date', {
+                                'label_attr': {'class': 'birth_date'}
+                                }) }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="input-field">
+                                {{ form_widget(form.birth_location) }}
+                                {{ form_label(form.birth_location, 'birth_location', {
+                                'label_attr': {'class': 'birth_location'}
+                                }) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-40">
+                <h3 class="text-extrabold">Your professional profile</h3>
+                <div class="col-xs-12 col-sm-6">
+
+                    <div class="card card-panel passport">
+                        <div class="file-field input-field">
+                            <div class="btn btn-lg primary waves-effect waves-light">
+                                <span><i class="material-icons">&#xE24D;</i> Passport</span>
+                                  {{ form_widget(form.passport) }}
+                                {# <input id="passport" size="20000000" accept=".pdf,.jpg,.doc,.docx,.png,.gif" name="passport" type="file"> #}
+                            </div>
+                            <div class="existing-file">
+                                <a href="{{ asset ('uploads/passport/' ~ candidat.passport) }}" target="_blank"><i class="material-icons">&#xE24D;</i> passeport.jpg</a>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload your passport" readonly>
+                            </div>
+                        </div>
+
+                        <div class="file-field input-field">
+                            <div class="btn btn-lg primary waves-effect waves-light">
+                                <span><i class="material-icons">&#xE24D;</i> CV</span>
+                                 {{ form_widget(form.cv) }}
+                            </div>
+
+                            <div class="existing-file">
+                                <a href="{{ asset ('uploads/cv/' ~ candidat.cv) }}" target="_blank"><i class="material-icons">&#xE24D;</i> CV.pdf</a>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload your Curriculum Vitae" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="input-field" style="margin-top: 5px;">
+                            {{ form_widget(form.job_cat) }}
+                                {{ form_label(form.job_cat, 'job_cat', {
+                                'label_attr': {'class': 'job_cat'}
+                                }) }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="input-field">
+                            {{ form_widget(form.experience) }}
+                                {{ form_label(form.experience, 'experience', {
+                                'label_attr': {'class': 'experience'}
+                                }) }}
+                        </div>
+                    </div>
+                     <div class="col-xs-12 col-sm-12">
+                        <div class="input-field">
+                            {{ form_widget(form.availability) }}
+                                {{ form_label(form.availability, 'availability', {
+                                'label_attr': {'class': 'availability'}
+                                }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <div class="input-field">
+                      {{ form_widget(form.short_description) }}
+                        {# <textarea class="materialize-textarea" id="description" name="description" cols="50" rows="10"></textarea> #}
+                        <label for="description">Short description for your profile, as well as more personnal informations (e.g. your hobbies/interests ). You can also paste any link you want.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding gray-bg">
+        <div class="container">
+            <div class="row">
+                <h3 class="text-extrabold">Your K-Yachting account</h3>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="input-field">
+                        {{ form_widget(form.user.mail) }}
+                        {{ form_label(form.user.mail, 'mail', {
+                        'label_attr': {'class': 'mail'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="input-field">
+                        {{ form_widget(form.user.password) }}
+                        {{ form_label(form.user.password, 'password', {
+                        'label_attr': {'class': 'password'}
+                        }) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 mt-40 mb-80 delete-account">
+                    <a href= "" onclick="return prompt('Please Type \'Delete my account\' to delete your K-Yachting Services account:') == 'Delete my account'" class="btn btn-block btn-lg waves-effect waves-light"><i class="material-icons">&#xE872;</i>Delete my account</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <a href="{{ path ('home')}}" class="btn btn-block btn-lg border primary waves-effect waves-light"><i class="fa fa-long-arrow-left"></i> Back home</a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">
+                    <button type="submit" class="btn btn-block btn-lg gradient secondary waves-effect waves-light">
+                        <span><strong>UPDATE</strong> NOW</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+{{ form_end(form) }}
+
+{% block javascripts %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+    <script>
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd' });
+    </script>
+
+{% endblock %}

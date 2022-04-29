@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+    
+   <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.name_society) }}
+                        {{ form_label(form.name_society, 'name_society', {
+                            'label_attr': {'class': 'name_society'}
+                        }) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-field">
+                        {{ form_widget(form.activity_type) }}
+                        {{ form_label(form.activity_type, 'activity_type', {
+                            'label_attr': {'class': 'activity_type'}
+                        }) }}
+                    </div>
+                </div>
+                <button class="btn bn-lg gradient primary btn-block waves-effect waves-light btn-register">{{ button_label|default('Save') }}</button>
+            </div>
+        </div>
+    </section>
+   
+{{ form_end(form) }}
